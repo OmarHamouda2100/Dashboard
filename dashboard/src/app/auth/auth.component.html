@@ -1,0 +1,75 @@
+<div class="login d-flex justify-content-center align-items-center">
+  <mat-card class="card">
+    <mat-card-title class="text-center">{{isLogin ? 'Login' : 'Signup'}}</mat-card-title>
+      <mat-card-content>
+        @if(isLogin) {
+            <form
+            [formGroup]="form"
+            (ngSubmit)="submit()"
+            class="d-flex align-items-center flex-column mt-5">
+          <p class="text-center">
+            <mat-form-field>
+              <input type="text" matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <input type="password" matInput placeholder="Password" formControlName="password">
+            </mat-form-field>
+          </p>
+
+          <p *ngIf="error" class="error">
+            {{ error }}
+          </p>
+
+          <div class="button">
+            <button
+            [disabled]="form.invalid"
+            type="submit"
+            mat-button>Login</button>
+          </div>
+
+            </form>
+        }
+
+        @if(!isLogin) {
+            <form
+            [formGroup]="form"
+            (ngSubmit)="submit()"
+            class="d-flex align-items-center flex-column mt-5">
+              <p class="text-center">
+                <mat-form-field>
+                  <input type="email" matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+              </p>
+
+              <p class="text-center">
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Username" formControlName="username">
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+              </p>
+
+              <p *ngIf="form.invalid" class="error">
+                {{ error }}
+              </p>
+
+          <div class="button">
+            <button
+              type="submit"
+              mat-button
+              [disabled]="form.invalid">Signup</button>
+          </div>
+
+            </form>
+        }
+        <p>you don't have an account?<a (click)="toggle()" style="color: rgb(64, 64, 248); cursor: pointer">Signup</a></p>
+      </mat-card-content>
+  </mat-card>
+</div>
