@@ -1,0 +1,23 @@
+<aside
+  class="d-flex flex-column gap-4"
+  [class.toggeled]="toggel">
+  <div class="header d-flex align-items-center">
+    <h3 class="text-center" style="flex-grow: 3;">Dashboard</h3>
+
+    <div
+      class="toggle"
+      style="padding-right: 10px;"
+      (click)="ontoggel()">
+      <i class="fa-solid fa-sliders"></i>
+    </div>
+  </div>
+
+  <ul>
+    <li routerLink="./home" routerLinkActive="router-link-active" >Home</li>
+    <li>About</li>
+    <li>Status</li>
+    <li>Contact</li>
+  </ul>
+  <div class="icons">
+  </div>
+</aside>
