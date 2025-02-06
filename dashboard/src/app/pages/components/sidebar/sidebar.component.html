@@ -1,5 +1,5 @@
 <aside
-  class="d-flex flex-column gap-4"
+  class="d-flex flex-column gap-5"
   [class.toggeled]="toggel">
   <div class="header d-flex align-items-center">
     <h3 class="text-center" style="flex-grow: 3;">Dashboard</h3>
@@ -13,10 +13,11 @@
   </div>
 
   <ul>
-    <li routerLink="./home" routerLinkActive="router-link-active" >Home</li>
-    <li>About</li>
-    <li>Status</li>
-    <li>Contact</li>
+    <li routerLink="/layout/home" routerLinkActive="active" >Home</li>
+    <li routerLink="/layout/profile" routerLinkActive="active">Profile</li>
+    <li routerLink="/layout/projects" routerLinkActive="active">Projects</li>
+    <li routerLink="/layout/setting" routerLinkActive="active">Setting</li>
+    <li routerLink="/layout/user-management" routerLinkActive="active">User-Management</li>
   </ul>
   <div class="icons">
   </div>

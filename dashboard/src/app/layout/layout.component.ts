@@ -3,6 +3,7 @@ import { SidebarComponent } from "../pages/components/sidebar/sidebar.component"
 import { RouterOutlet } from '@angular/router';
 import { MatIconButton } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-layout',
@@ -10,7 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
     SidebarComponent,
     RouterOutlet,
     MatIconButton,
-    MatIconModule
+    MatIconModule,
+    MatInputModule
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'

@@ -24,6 +24,14 @@ aside {
       transition: 0.3s;
     }
 
+    .active {
+      color: rgb(128, 128, 128);
+    }
+
+    .active::after {
+      background-color: rgb(128, 128, 128);
+    }
+
     li:after {
       position: absolute;
       content: "";
@@ -33,10 +41,6 @@ aside {
       height: 1px;
       background-color: rgb(231, 229, 229);
     }
-
-    // & li:not(:last-child) {
-    //   border-bottom:1px solid rgb(231, 229, 229) ;
-    // }
 
     li:hover {
       background-color:rgb(231, 229, 229, 0.1) ;
