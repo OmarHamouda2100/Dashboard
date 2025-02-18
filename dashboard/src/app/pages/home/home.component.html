@@ -1,3 +1,70 @@
-<div class="container-fluid">
-  <h1>hello</h1>
+<div class="container-fluid mt-3">
+  <h2 class="position-relative">Dashboard</h2>
+
+  <div class="wrapper mt-5">
+    <div class="card info">
+      <div class="intro d-flex justify-content-between" >
+        <div>
+          <h5 style="font-weight: bold;">Welcome</h5>
+          <span class=" d-block mt-3">{{'Omar'}}</span>
+            <img class="img-fluid d-block  avatar" src="avatar.png" alt="">
+        </div>
+
+        <div style="align-self: flex-start;">
+          <img class="img-fluid" src="welcome.png" alt="">
+        </div>
+      </div>
+
+      <div class="details d-flex align-items-center justify-content-between p-4 text-center my-5">
+        <div class="box">
+          <p>{{"Omar Hamouda"}}</p>
+          <span>{{"Software Engineer"}}</span>
+        </div>
+
+        <div class="box">
+          <p>{{"50"}}</p>
+          <span>{{"Projects"}}</span>
+        </div>
+
+        <div class="box">
+          <p>{{"10000" | currency}}</p>
+          <span>{{'Salary'}}</span>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end m-3">
+        <button (click)="goToProfile()" mat-button>Profile</button>
+      </div>
+    </div>
+
+    <div class="card draft">
+      <h4>Draft</h4>
+      <p>Write A Draft For Your Ideas</p>
+
+      <form>
+        <mat-form-field class="title">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Add your draft">
+        </mat-form-field>
+
+        <mat-form-field class="thought">
+          <mat-label>Your thoughts</mat-label>
+          <textarea matInput placeholder="Your thoughts"></textarea>
+        </mat-form-field>
+
+        <div class="d-flex justify-content-end m-3">
+          <button mat-button>save</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="news">
+
+    </div>
+
+    <div class="tasks">
+      
+    </div>
+
+  </div>
 </div>

@@ -19,6 +19,10 @@
     <li routerLink="/layout/setting" routerLinkActive="active">Setting</li>
     <li routerLink="/layout/user-management" routerLinkActive="active">User-Management</li>
   </ul>
-  <div class="icons">
+
+  <div class="icons text-center d-flex flex-column gap-2">
+    <button mat-icon-button aria-label="Logout" [routerLink]="''">
+      <mat-icon>logout</mat-icon>
+    </button>
   </div>
 </aside>

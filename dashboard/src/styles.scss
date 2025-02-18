@@ -1,5 +1,9 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,4 +11,9 @@
 ul {
   list-style: none;
   padding: 0;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
 }

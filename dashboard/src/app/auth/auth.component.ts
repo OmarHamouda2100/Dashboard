@@ -40,7 +40,7 @@ export class AuthComponent {
   submit() {
     if (this.form.valid) {
       this.submitEM.emit(this.form.value);
-      this.router.navigate(['/layout'])
+      this.router.navigate(['/layout/home'])
     }
   }
 }

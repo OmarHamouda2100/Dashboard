@@ -1,4 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 
@@ -6,7 +7,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   selector: 'app-sidebar',
   imports: [
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatIconModule
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
