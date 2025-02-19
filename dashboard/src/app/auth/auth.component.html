@@ -5,7 +5,7 @@
         @if(isLogin) {
             <form
             [formGroup]="form"
-            (ngSubmit)="submit()"
+            (ngSubmit)="submit(form.getRawValue().username, form.getRawValue().password)"
             class="d-flex align-items-center flex-column mt-5">
           <p class="text-center">
             <mat-form-field>
@@ -33,10 +33,12 @@
             </form>
         }
 
+        <p *ngIf="errMassage">in valid</p>
+
         @if(!isLogin) {
             <form
             [formGroup]="form"
-            (ngSubmit)="submit()"
+            (ngSubmit)="submit(form.getRawValue().username, form.getRawValue().password)"
             class="d-flex align-items-center flex-column mt-5">
               <p class="text-center">
                 <mat-form-field>

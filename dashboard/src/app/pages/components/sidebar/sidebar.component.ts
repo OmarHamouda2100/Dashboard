@@ -1,6 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { LoginService } from '../../../auth/login.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class SidebarComponent {
   router: Router = inject(Router)
+  loginService: LoginService = inject(LoginService)
 
   @Input() toggel = false
   @Output() toggelling = new EventEmitter()
@@ -25,5 +27,6 @@ export class SidebarComponent {
 
   nav() {
     this.router.navigate(['layout/profile'])
+    this.loginService.currentUser.set(undefined)
   }
 }

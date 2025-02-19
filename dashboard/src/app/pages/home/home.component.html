@@ -6,7 +6,7 @@
       <div class="intro d-flex justify-content-between" >
         <div>
           <h5 style="font-weight: bold;">Welcome</h5>
-          <span class=" d-block mt-3">{{'Omar'}}</span>
+          <span class=" d-block mt-3">{{currentUser()?.name}}</span>
             <img class="img-fluid d-block  avatar" src="avatar.png" alt="">
         </div>
 
@@ -17,17 +17,17 @@
 
       <div class="details d-flex align-items-center justify-content-between p-4 text-center my-5">
         <div class="box">
-          <p>{{"Omar Hamouda"}}</p>
-          <span>{{"Software Engineer"}}</span>
+          <p>{{currentUser()?.name}}</p>
+          <span>{{currentUser()?.job}}</span>
         </div>
 
         <div class="box">
-          <p>{{"50"}}</p>
+          <p>{{currentUser()?.projectsWorkedOn}}</p>
           <span>{{"Projects"}}</span>
         </div>
 
         <div class="box">
-          <p>{{"10000" | currency}}</p>
+          <p>{{currentUser()?.salary | currency}}</p>
           <span>{{'Salary'}}</span>
         </div>
       </div>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="tasks">
-      
+
     </div>
 
   </div>

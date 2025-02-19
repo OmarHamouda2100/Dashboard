@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 
 let gard = false
 @Component({
@@ -23,9 +24,12 @@ let gard = false
 })
 export class AuthComponent {
   @Input() error?: string | null;
-  @Output() submitEM = new EventEmitter();
   router: Router = inject(Router)
+  loginService = inject(LoginService)
+
   isLogin = true
+  errMassage = false
+
 
   form: FormGroup = new FormGroup({
     email: new FormControl(''),
@@ -37,11 +41,17 @@ export class AuthComponent {
     this.isLogin = !this.isLogin
   }
 
-  submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-      this.router.navigate(['/layout/home'])
-    }
+  submit(username: string, password: string) {
+      this.loginService.login(username, password)
+      this.errMassage = false
+
+      if (!this.loginService.error()) {
+        console.log(this.loginService.error())
+        this.router.navigate(['/layout/home']);
+      } else {
+        console.log(this.loginService.error())
+        this.errMassage = true
+      }
   }
 }
 
