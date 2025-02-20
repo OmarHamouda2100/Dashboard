@@ -68,4 +68,18 @@ h2 {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 15px;
+
+  .box {
+    p {
+      background-color: #ccc;
+      border-radius: 8px;
+      padding: 5px 15px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .box:first-of-type {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+  }
 }
