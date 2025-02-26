@@ -75,7 +75,24 @@
 
     <div class="card p-3">
       <h4>Latest Tasks</h4>
-
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="none">None</mat-option>
+          <mat-option value="new">New</mat-option>
+          <mat-option value="in-progress">In-Progress</mat-option>
+          <mat-option value="done">Done</mat-option>
+        </mat-select>
+      </mat-form-field>
+        <div class="tasks">
+          @for(task of show() ? filteredTasks() : filteredTasks().slice(0, 5); track task) {
+            <div class="task d-flex align-items-center justify-content-between mb-3 pb-3">
+              <span [ngClass]="{'new': task.status === 'new', 'in-progress': task.status === 'in-progress', 'done': task.status === 'done'}">{{task.status}}</span>
+              <p>{{task.title}}</p>
+            </div>
+          }
+          <button (click)="showMore()">{{show() ? 'Show Less' : "Show More"}}</button>
+        </div>
     </div>
   </div>
 </div>

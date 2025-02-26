@@ -1,0 +1,140 @@
+h2 {
+  width: fit-content;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 0;
+    width: 75%;
+    height: 2px;
+    background-color: rgb(150, 148, 148);
+    transform: translateX(15%);
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  .card {
+    .progress {
+      .mat-mdc-progress-bar {
+        &.low {
+          --mdc-linear-progress-active-indicator-color: rgb(35, 226, 35);
+        }
+        &.medium {
+          --mdc-linear-progress-active-indicator-color: rgb(15, 15, 143);
+        }
+        &.high {
+          --mdc-linear-progress-active-indicator-color: rgb(207, 29, 29);
+        }
+      }
+    }
+  }
+}
+
+.tasks {
+  text-align: center;
+
+  .new,
+  .in-progress,
+  .done {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #e6e5e5;
+    width: 300px;
+    min-height: 200px;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .header {
+    background-color: #bbb9b9;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .new li,
+  .in-progress li,
+  .done li {
+    background-color: #f8f7f7;
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 5px;
+    min-height: 50px;
+    cursor: grab;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: 
+      transform 0.2s ease-in-out, 
+      box-shadow 0.3s ease-in-out, 
+      background-color 0.3s ease-in-out;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+      margin: 0;
+      padding: 5px 0;
+      line-height: 1.4;
+    }
+  }
+
+  // Floating effect when dragging
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #fff;
+    transform: scale(1.05);
+    box-shadow: 
+      0 5px 15px rgba(0, 0, 0, 0.3), 
+      0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  // Hides placeholder to prevent UI glitches
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+
+  // Smooth animation when dropped
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  // Highlights drop area when dragging over
+  .cdk-drop-list-dragging {
+    .new,
+    .in-progress,
+    .done {
+      background-color: #dcdcdc;
+    }
+  }
+}
+
+

@@ -13,29 +13,27 @@ export interface Employee {
   username: string;
   password: string;
   name: string;
-  gender: 'Male' | 'Female';
+  gender: string;
   birthDate: string;
   country: string;
   job: string;
-  level: 'Junior' | 'Mid-Level' | 'Senior';
+  level: string;
   yearsOfExperience: number;
   salary: number;
   projectsWorkedOn: number;
   programmingLanguages: string[];
-  paymentMethod: 'Bank Transfer' | 'PayPal' | 'Crypto' | 'Credit Card';
-  subscription: 'Premium' | 'Standard';
-  tasks: {
-    title: string;
-    description: string;
-    status: 'new' | 'in-progress' | 'done';
-  }[];
-  lastDraft: {
-    title: string;
-    description: string;
-  };
+  paymentMethod: string;
+  subscription: string;
+  tasks: { title: string; description: string; status: 'new' | 'in-progress' | 'done' }[];
+  lastDraft: { title: string; description: string };
   email: string;
   phone: string;
   techSkills: string[];
   softSkills: string[];
+  projects: {
+    name: string;
+    description: string;
+    progress: number; // Progress as a percentage (0-100)
+    startDate: string; // Date in ISO format (e.g., '2023-01-15')
+  }[];
 }
-

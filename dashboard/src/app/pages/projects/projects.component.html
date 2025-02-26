@@ -1,1 +1,81 @@
-<p>projects works!</p>
+<div class="container-fluid mt-3">
+  <h2 class="position-relative">Projects</h2>
+
+  <div class="wrapper mt-5">
+    @for(project of currentUser()?.projects; track project) {
+    <div class="card p-3">
+        <div class="project">
+          <div class="d-flex align-items-baseline justify-content-between mb-4  ">
+            <h3>{{project.name}}</h3>
+            <span>{{project.startDate}}</span>
+          </div>
+          <p>{{project.description}}</p>
+
+          <div class="progress d-flex align-items-center gap-3">
+            <mat-progress-bar
+              mode="determinate"
+              [value]="project.progress"
+              [ngClass]="prjectStatus(project.progress)"></mat-progress-bar>
+            <span>{{project.progress + '%'}}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="tasks d-flex align-items-center gap-5 justify-content-center">
+    <div class="new">
+      <div class="header">New</div>
+      <ul
+        cdkDropList
+        #newList="cdkDropList"
+        id="new"
+        [cdkDropListData]="getTasksByStatus('new')"
+        [cdkDropListConnectedTo]="['in-progress', 'done']"
+        (cdkDropListDropped)="drop($event)">
+        @for(task of getTasksByStatus('new'); track task) {
+          <li cdkDrag class="task">
+            <span>{{task.title}}</span>
+            <p>{{task.description}}</p>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="in-progress">
+      <div class="header">In-Progress</div>
+      <ul
+        cdkDropList
+        #inProgressList="cdkDropList"
+        id="in-progress"
+        [cdkDropListData]="getTasksByStatus('in-progress')"
+        [cdkDropListConnectedTo]="['new', 'done']"
+        (cdkDropListDropped)="drop($event)">
+        @for(task of getTasksByStatus('in-progress'); track task) {
+          <li cdkDrag class="task">
+            <span>{{task.title}}</span>
+            <p>{{task.description}}</p>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="done">
+      <div class="header">Done</div>
+      <ul
+        cdkDropList
+        #doneList="cdkDropList"
+        id="done"
+        [cdkDropListData]="getTasksByStatus('done')"
+        [cdkDropListConnectedTo]="['new', 'in-progress']"
+        (cdkDropListDropped)="drop($event)">
+        @for(task of getTasksByStatus('done'); track task) {
+          <li cdkDrag class="task">
+            <span>{{task.title}}</span>
+            <p>{{task.description}}</p>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
